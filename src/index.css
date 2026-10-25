@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #17263c;
+  --color-ink-2: #44546b;
+  --color-ink-3: #6b7a90;
+  --color-line: #e3e9f1;
+  --color-line-2: #cfd8e4;
+  --color-surface: #ffffff;
+  --color-soft: #f6f9fc;
+  --color-soft-2: #eef3f9;
+  --color-brand: #2563eb;
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe7fe;
+  --color-brand-700: #1d4fd7;
+  --color-teal: #0d9488;
+  --color-teal-50: #e7f6f4;
+  --color-amber: #f59e0b;
+  --color-coral: #f97362;
+  --color-amber-50: #fff6e5;
+  --color-amber-700: #a35f00;
+  --color-danger: #c81e3a;
+  --color-danger-50: #fdecef;
+  --color-ok: #0f7a5c;
+  --color-ok-50: #e8f6f0;
+
+  --font-sans: 'Onest Variable', 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Geologica Variable', 'Geologica', 'Onest Variable', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --radius-card: 18px;
+  --shadow-card: 0 1px 2px rgb(23 38 60 / 0.04), 0 8px 24px -12px rgb(23 38 60 / 0.12);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Grid ішіндегі кең кестелер бетті кеңейтпесін */
+.grid > * {
+  min-width: 0;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Сырғытпа (range) — үлкен, қолжетімді */
+input[type='range'].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type='range'].slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--track-color, #2563eb) 0%, var(--track-color, #2563eb) var(--fill, 0%), #e3e9f1 var(--fill, 0%), #e3e9f1 100%);
+}
+input[type='range'].slider::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #e3e9f1;
+}
+input[type='range'].slider::-moz-range-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--track-color, #2563eb);
+}
+input[type='range'].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--track-color, #2563eb);
+  box-shadow: 0 1px 4px rgb(23 38 60 / 0.25);
+}
+input[type='range'].slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--track-color, #2563eb);
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  opacity: 0.4;
+}
+
+.grid-paper {
+  background-image: linear-gradient(#eef3f9 1px, transparent 1px), linear-gradient(90deg, #eef3f9 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header,
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+.recharts-text {
+  font-family: var(--font-sans);
+}
